@@ -1,67 +1,52 @@
-const students = [];
-let runagain = true;
-
-
-const add_student = (name, phno, email, address) => {
-  const student_info = {
-    name: name,
-    phno: phno,
-    email: email,
-    address: address,
-  };
-  students.push(student_info);
-  
+const student_info = {
+  name: "",
+  phone: "",
+  email: "",
+  address: "",
 };
 
+const addStudent = () => {
+  addName();
+  addEmail();
+  addPhone();
+  addAddress();
+};
 
-while (runagain) {
-  let name = prompt("enter name.....");
-  if(!name){
-  continue;
+const addName = () => {
+  let name = prompt("Enter name");
+  if (name) {
+    student_info.name = name;
+  }else{
+    addName();
   }
-  else{
-    break;
+};
+
+const addEmail = () => {
+  let email = prompt("Enter email");
+  if (email) {
+    student_info.email = email;
+  }else{
+    addEmail();
   }
-  
+};
 
-}
+const addPhone = () => {
+  let phone = prompt("Enter phone");
+  if (phone) {
+    student_info.phone = phone;
+  }else{
+    addPhone();
+  }
+};
 
-while(runagain){  
+const addAddress = () => {
+  let address = prompt("Enter address");
+  if (address) {
+    student_info.address = address;
+  }else{
+    addAddress();
+  }
+};
 
-let phno = prompt("enter phone number.....");
-if(!phno){
-    continue;
-    }
-    else{
-      break;
-    }
-
-}
-while(runagain){
-let email = prompt("enter email.....");
-if(!email){
-    continue;
-    }
-    else{
-      break;
-    }
-}
-
-while(runagain){
-  let address = prompt("enter address.....");
-  if(!address){
-    continue;
-    }
-    else{
-      break;
-    }
-}
-runagain = false
-add_student(name,phno,email,address)
-console.log(students);
-
-
-
-
-
-
+addStudent();
+console.log(student_info);
